@@ -5,8 +5,18 @@
   "main": "service/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "watchify src/js/main.js -o dist/bundle.js -v",
     "deploy": "echo \"Error: no deploy specified\" && exit 1"
   },
   "author": "JP Wesselink <jpwesselink@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "uglify-js": "^2.6.2",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "underscore": "^1.8.3",
+    "vue": "^1.0.24"
+  }
 }
