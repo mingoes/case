@@ -6,16 +6,16 @@ var Vue = require('vue'),
 var app = new Vue({
 	el: "#app",
 	data: {
-		'types': {},
-		'error': '',
-		'ready': false,
-		'selected_type': null,
-		'selected_vehicle': null,
-		'selected_vehicle_color': null,
+		types: {},
+		error: '',
+		ready: false,
+		selected_type: null,
+		selected_vehicle: null,
+		selected_vehicle_color: null
 	},
 	computed: {
-		'form_valid': function(){
-			return this.selected_type && this.selected_vehicle && this.selected_vehicle_color;
+		form_valid: function(){
+			return (this.selected_type && this.selected_vehicle && this.selected_vehicle_color) !== null;
 		}
 	},
 	methods: {
@@ -26,6 +26,7 @@ var app = new Vue({
 					app.types = _.groupBy(data, 'type');
 				}
 				app.ready = true;
+				app.$emit('loading_ready');
 			});
 		}
 	}
