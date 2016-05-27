@@ -1,15 +1,13 @@
 # Planes, trains and automobiles
 
 ## Explanation Mingoes
-Key challenges:
+### Key challenges:
 - Data manipulation / sorting
     - The example data is in "another" format then wished.
-    - Underscore provides some easy to use functions
 - Testability
     - Component should be testable with unit tests
-    - Should there be end-to-end testing?
 
-Used techniques: 
+### Used techniques: 
   - VueJS
       - It has databinding
       - It is reactive
@@ -23,9 +21,10 @@ Used techniques:
       - Will do the job of visual attractiveness.
       - It's a standard implementation so intuitve for other devs.
 
-Installation:
+### Installation:
 
-Requirements
+Requirements:
+
 Make sure that sass, browserify and watchify are installed
 ```
 npm install -g sass browserify watchify
