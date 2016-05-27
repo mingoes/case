@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Traffic Meister application</title>
+  <link rel="stylesheet" type="text/css" href="../dist/style/main.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header  navbar-brand">Traffic Meister</div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div id="app" class="jumbotron" v-cloak>
+
+        <h1 v-if="!ready">Loading.....</h1>
+
+        <div class="alert alert-danger" role="alert" v-if="error">
+          <strong>The was an error:</strong> {{error}} <br />
+          Please refresh the page!
+        </div>
+
+        <form v-if="!error && ready" method="post" transition="fade">
+
+          <h1>Make your choice</h1>
+
+          <p>Select a vehicle type:</p>
+          <fieldset class="form-group" >
+            <select id="vehicle-type" v-model="selected_type" class="form-control">
+              <option v-for="type in types" :value="$key">{{$key}} ({{type.length}})</option>
+            </select>
+          </fieldset>
+
+          <fieldset v-if="selected_type" transition="fade" class="form-group" >
+            <p>Select {{selected_type}} brand</p>
+            <select id="vehicles" v-model="selected_vehicle" class="form-control">
+              <option v-for="vehicle in types[selected_type] | orderBy 'brand'" :value="vehicle">{{vehicle.brand}}</option>
+            </select>
+          </fieldset>
+
+          <fieldset v-if="selected_vehicle" transition="fade" class="form-group" >
+            <p>Select a color for the {{selected_vehicle.brand}}</p>
+            <select id="vehicles" v-model="selected_vehicle_color" class="form-control">
+              <option v-for="color in selected_vehicle.colors | orderBy 1" :value="color">{{color}}</option>
+            </select> 
+          </fieldset>
+
+          <div class="row">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail" v-if="form_valid">
+                  <img :src="selected_vehicle.img" :alt="selected_vehicle.brand" v-if="form_valid"/>
+                  <h4 class="text-center">{{selected_vehicle.brand}}</h4>
+                  <div :style="{backgroundColor: selected_vehicle_color, height: '10px'}"></div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+    </div>
+
+  </div>
+
+
+  <script src="../dist/bundle.js"></script>
+</body>
+
+</html>
