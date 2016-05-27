@@ -45,7 +45,7 @@ npm run deploy
 This will fill up the dist folder with a ready-to-deploy package.
 
 ### Notes
-I didn't have so much time for this case but I will explain some of my choices in a bit more detail. I used Vue mainly because I was reading a lot about it and quite like it. Alternatives where AngularJS 2.0 and ReactJS. AngularJS 2.0 is still a release candidate, so for a deployable product it's a bit too early. ReactJS uses a virtualdom which requires me to write "templates", right now the app is very simple so writing html directly in the index.html is easy. With Vue now, the app stil looks simple, Vue is easy to learn for other developers and is actively maintained.
+I used Vue mainly because I was reading a lot about it and quite like it. Alternatives where AngularJS 2.0 and ReactJS. AngularJS 2.0 is still a release candidate, so for a deployable product it's a bit too early. ReactJS uses a virtualdom which requires me to write "templates", right now the app is very simple so writing html directly in the index.html is easy. With Vue now, the app stil looks simple, Vue is easy to learn for other developers and is actively maintained.
 
 For working with arrays and object I chose Lodash. Lodash has a better implementation than underscore (100% code coverage). Also, lodash allows a bit more cleaner looking code.
 
