@@ -23,8 +23,6 @@
 
 ### Installation:
 
-Requirements:
-
 Make sure that sass, browserify and watchify are installed
 ```
 npm install -g sass browserify watchify
@@ -43,6 +41,17 @@ to just deploy:
 ```
 npm run deploy
 ```
+
+This will fill up the dist folder with a ready-to-deploy package.
+
+### Notes
+I didn't have so much time for this case but I will explain some of my choices in a bit more detail. I used Vue mainly because I was reading a lot about it and quite like it. The app stil looks simple, Vue is easy to learn for other developers and is actively maintained.
+
+The rest of the stack is quite standard, Browserify, SASS, Uglify. This to make sure it meets the requirement of being deployable.  
+
+I used karma for testing because it's a flexible test runner that has support for jasmine and browserify. With this combination it's very easy to test Vue components.
+
+I didn't use a task runner because it will require more plugins and in general I noticed that a task runners can start to work against you when you want to have something simple done. Right now I just stick with npm run commands and a task runner is always easy to add later.
 
 ## The Traffic Meister application assignment
 
