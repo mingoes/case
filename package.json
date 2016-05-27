@@ -9,8 +9,8 @@
     "watch-sass": "./node_modules/node-sass/bin/node-sass --watch src/scss/main.scss -o dist/style",
     "dev": "npm run serve & npm run watch-js & npm run watch-sass",
     "test": "./node_modules/karma/bin/karma start karma.conf.js --single-run",
-    "deploy-js": "NODE_ENV=production browserify -e src/js/main.js | uglifyjs -c -m > dist/bundle.min.js",
-    "deploy-sass": "./node_modules/node-sass/bin/node-sass --output-style compressed src/scss/main.scss dist/style/main.min.css",
+    "deploy-js": "NODE_ENV=production browserify -e src/js/main.js | uglifyjs -c -m > dist/bundle.js",
+    "deploy-sass": "./node_modules/node-sass/bin/node-sass --output-style compressed src/scss/main.scss dist/style/main.css",
     "deploy": "npm run deploy-js && npm run deploy-sass"
   },
   "author": "Mingoes Kukupessy <mingoes@gmail.com>",

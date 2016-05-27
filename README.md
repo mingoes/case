@@ -34,7 +34,7 @@ To start the watch tasks:
 ```
 npm run dev
 ```
-Site will be served at localhost:8000/service
+Site will be served at localhost:8000/dist
 
 to just deploy:
 
