@@ -17,7 +17,7 @@ Used techniques:
       - It's fast
       - I like it
   - Browserify / Watchify
-      - Possibility to use ES2015
+      - Possibility to use ES2015 with Babel (but didn't use it for this example)
       - Stick to NPM so no task runners.
   - Bootstrap (SASS version)
       - Will do the job of visual attractiveness.
@@ -27,15 +27,23 @@ Installation:
 
 Requirements
 Make sure that sass, browserify and watchify are installed
+```
 npm install -g sass browserify watchify
+```
 Also, make sure python 2.0 is installed (default on OSX)
 
-To start developing 
+To start the watch tasks:
+
+```
 npm run dev
+```
 Site will be served at localhost:8000/serivce
 
 to just deploy:
+
+```
 npm run deploy
+```
 
 ## The Traffic Meister application assignment
 
