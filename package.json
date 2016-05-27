@@ -4,19 +4,25 @@
   "description": "A test case base project",
   "main": "service/index.js",
   "scripts": {
+    "serve": "python -m SimpleHTTPServer",
+    "watch-js": "watchify src/js/main.js -o dist/bundle.js -v",
+    "watch-sass": "./node_modules/node-sass/bin/node-sass --watch src/scss/main.scss -o dist/style",
+    "dev": "npm run serve & npm run watch-js & npm run watch-sass",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "watchify src/js/main.js -o dist/bundle.js -v",
-    "deploy": "echo \"Error: no deploy specified\" && exit 1"
+    "deploy": "NODE_ENV=production browserify -e src/js/main.js | uglifyjs -c -m > dist/bundle.min.js"
   },
-  "author": "JP Wesselink <jpwesselink@gmail.com>",
+  "author": "Mingoes Kukupessy <mingoes@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "browserify": "^13.0.1",
-    "uglify-js": "^2.6.2",
     "watchify": "^3.7.0"
   },
   "dependencies": {
-    "underscore": "^1.8.3",
+    "bootstrap-sass": "^3.3.6",
+    "browserify": "^13.0.1",
+    "jasmine-core": "^2.4.1",
+    "lodash": "^4.13.1",
+    "node-sass": "^3.7.0",
+    "uglify-js": "^2.6.2",
     "vue": "^1.0.24"
   }
 }

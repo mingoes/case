@@ -1,0 +1,17 @@
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+
+body{
+	background-color: #EFEFEF;
+}
+
+//Hide loading Vue instances by default
+[v-cloak] { 
+	display: none 
+}
+
+#app{
+
+	background-color: #fff;
+	
+	@import 'transitions';
+}

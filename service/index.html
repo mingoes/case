@@ -4,55 +4,70 @@
 <head>
   <meta charset="UTF-8">
   <title>Traffic Meister application</title>
+  <link rel="stylesheet" type="text/css" href="../dist/style/main.css">
 </head>
 
 <body>
 
-  <div id="app">
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header  navbar-brand">Traffic Meister</div>
+    </div>
+  </nav>
 
+  <div class="container">
 
-      <p v-if="!ready">
-        Bezig met laden.....
-      </p>
+    <div id="app" class="jumbotron" v-cloak>
 
-      <p v-if="error">
-        Er is een fout opgetreden: {{error}}<br />
-        Refresh de pagina!
-      </p>
+        <h1 v-if="!ready">Loading.....</h1>
 
-      <form v-if="!error && ready" method="post">
-      
-        <p>Selecteer een type:</p>
-        <select id="vehicle-type" v-model="selected_type">
-          <option v-for="type in types" :value="$key">{{$key}} ({{type.length}})</option>
-        </select>
-
-        <div v-if="selected_type">
-          <p>Selecteer een {{selected_type}}</p>
-          <select id="vehicles" v-model="selected_vehicle">
-            <option v-for="vehicle in types[selected_type]" :value="vehicle">{{vehicle.brand}}</option>
-          </select>
+        <div class="alert alert-danger" role="alert" v-if="error">
+          <strong>The was an error:</strong> {{error}} <br />
+          Please refresh the page!
         </div>
 
-        <div v-if="selected_vehicle">
-          <img :src="selected_vehicle.img" :alt="selected_vehicle.brand"/>
-          <p>Selecteer een kleur voor {{selected_vehicle.brand}}</p>
-          <select id="vehicles" v-model="selected_vehicle_color">
-            <option v-for="color in selected_vehicle.colors" :value="color">{{color}}</option>
-          </select>
-          <div v-if="selected_vehicle_color" style="width:100px; height: 100px; background-color:{{selected_vehicle_color}}"></div>
-        </div>
+        <form v-if="!error && ready" method="post" transition="fade">
 
-        <p></p>
+          <h1>Make your choice</h1>
 
-        <input type="submit" :disabled="!form_valid" value="Verzenden" /> 
+          <p>Select a vehicle type:</p>
+          <fieldset class="form-group" >
+            <select id="vehicle-type" v-model="selected_type" class="form-control">
+              <option v-for="type in types" :value="$key">{{$key}} ({{type.length}})</option>
+            </select>
+          </fieldset>
 
-      </form>
+          <fieldset v-if="selected_type" transition="fade" class="form-group" >
+            <p>Select {{selected_type}} brand</p>
+            <select id="vehicles" v-model="selected_vehicle" class="form-control">
+              <option v-for="vehicle in types[selected_type] | orderBy 'brand'" :value="vehicle">{{vehicle.brand}}</option>
+            </select>
+          </fieldset>
+
+          <fieldset v-if="selected_vehicle" transition="fade" class="form-group" >
+            <p>Select a color for the {{selected_vehicle.brand}}</p>
+            <select id="vehicles" v-model="selected_vehicle_color" class="form-control">
+              <option v-for="color in selected_vehicle.colors | orderBy 1" :value="color">{{color}}</option>
+            </select> 
+          </fieldset>
+
+          <div class="row">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail" v-if="form_valid">
+                  <img :src="selected_vehicle.img" :alt="selected_vehicle.brand" v-if="form_valid"/>
+                  <h4 class="text-center">{{selected_vehicle.brand}}</h4>
+                  <div :style="{backgroundColor: selected_vehicle_color, height: '10px'}"></div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+    </div>
 
   </div>
 
 
-<script src="../dist/bundle.js"></script>
+  <script src="../dist/bundle.js"></script>
 </body>
 
 </html>

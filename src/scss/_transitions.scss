@@ -1,0 +1,13 @@
+.fade-transition {
+	transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+	opacity: 1;
+}
+
+.fade-enter{
+	opacity: 0;
+}
+
+.fade-leave{
+	opacity: 0;
+}

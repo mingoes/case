@@ -1,5 +1,42 @@
 # Planes, trains and automobiles
 
+## Explanation Mingoes
+Key challenges:
+- Data manipulation / sorting
+    - The example data is in "another" format then wished.
+    - Underscore provides some easy to use functions
+- Testability
+    - Component should be testable with unit tests
+    - Should there be end-to-end testing?
+
+Used techniques: 
+  - VueJS
+      - It has databinding
+      - It is reactive
+      - It's simple
+      - It's fast
+      - I like it
+  - Browserify / Watchify
+      - Possibility to use ES2015
+      - Stick to NPM so no task runners.
+  - Bootstrap (SASS version)
+      - Will do the job of visual attractiveness.
+      - It's a standard implementation so intuitve for other devs.
+
+Installation:
+
+Requirements
+Make sure that sass, browserify and watchify are installed
+npm install -g sass browserify watchify
+Also, make sure python 2.0 is installed (default on OSX)
+
+To start developing 
+npm run dev
+Site will be served at localhost:8000/serivce
+
+to just deploy:
+npm run deploy
+
 ## The Traffic Meister application assignment
 
  - Create a form which behaves as follows
