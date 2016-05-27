@@ -24,8 +24,8 @@ var app = new Vue({
 				app.error = error;
 				if(data){
 					app.types = _.groupBy(data, 'type');
+					app.ready = true;
 				}
-				app.ready = true;
 				app.$emit('loading_ready');
 			});
 		}
