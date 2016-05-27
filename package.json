@@ -8,7 +8,7 @@
     "watch-js": "watchify src/js/main.js -o dist/bundle.js -v",
     "watch-sass": "./node_modules/node-sass/bin/node-sass --watch src/scss/main.scss -o dist/style",
     "dev": "npm run serve & npm run watch-js & npm run watch-sass",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/karma/bin/karma start karma.conf.js --single-run",
     "deploy": "NODE_ENV=production browserify -e src/js/main.js | uglifyjs -c -m > dist/bundle.min.js"
   },
   "author": "Mingoes Kukupessy <mingoes@gmail.com>",
