@@ -3,7 +3,7 @@
 ## Explanation Mingoes
 ### Key challenges:
 - Data manipulation / sorting
-    - The example data is in "another" format then wished.
+    - The example data is in another format than wished.
 - Testability
     - Component should be testable with unit tests
 
